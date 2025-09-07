@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Círculos - EduCírculos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduCírculos</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Principal</h4>
+                    <a href="../dashboard.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="cursos.html" class="nav-item">
+                        <i class="fas fa-book-open"></i>
+                        <span>Cursos</span>
+                    </a>
+                    <a href="circulos.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Círculos de Estudio</span>
+                    </a>
+                    <a href="mis-circulos.html" class="nav-item active">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Mis Círculos</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Mi Aprendizaje</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Mi Progreso</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificados</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Guardados</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Recompensas</h4>
+                    <a href="educreditos.html" class="nav-item">
+                        <i class="fas fa-coins"></i>
+                        <span>EduCréditos</span>
+                        <span class="nav-badge educreditos-count">2,450</span>
+                    </a>
+                    <a href="ganancias.html" class="nav-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Logros</span>
+                    </a>
+                    <a href="planes.html" class="nav-item">
+                        <i class="fas fa-crown"></i>
+                        <span>Planes Premium</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Cuenta</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Ayuda</span>
+                    </a>
+                    <a href="../index.html" class="nav-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="page-info">
+                    <h1 class="page-title">Mis Círculos de Estudio</h1>
+                    <p class="page-subtitle">Gestiona tus grupos de estudio y actividades</p>
+                </div>
+
+                <div class="top-bar-actions">
+                    <button class="btn btn-primary" id="createCircleBtn">
+                        <i class="fas fa-plus"></i>
+                        Crear Círculo
+                    </button>
+
+                    <div class="user-menu">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <span class="user-name">Ana García</span>
+                            <span class="user-level">Nivel Avanzado</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <section class="personal-summary">
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <div class="summary-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>5</h3>
+                                <p>Círculos Unidos</p>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>2</h3>
+                                <p>Círculos Creados</p>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>127</h3>
+                                <p>Mensajes Enviados</p>
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>18</h3>
+                                <p>Sesiones Asistidas</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="active-circles">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-circle"></i>
+                            Círculos Activos
+                        </h2>
+                        <div class="filter-tabs">
+                            <button class="tab-btn active" data-tab="all">Todos</button>
+                            <button class="tab-btn" data-tab="owned">Mis Creados</button>
+                            <button class="tab-btn" data-tab="joined">Unidos</button>
+                        </div>
+                    </div>
+
+                    <div class="my-circles-grid">
+                        <div class="my-circle-card owned">
+                            <div class="circle-badge">Creador</div>
+                            <div class="circle-header">
+                                <div class="circle-avatar">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="circle-info">
+                                    <h3>Álgebra Avanzada 10mo</h3>
+                                    <p>Matemáticas • 10mo Grado</p>
+                                    <div class="circle-status online">
+                                        <i class="fas fa-circle"></i>
+                                        24 miembros activos
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="circle-activity">
+                                <div class="activity-item">
+                                    <i class="fas fa-message"></i>
+                                    <span>5 mensajes nuevos</span>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Próxima sesión: Hoy 7:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="circle-actions">
+                                <button class="btn btn-primary" data-action="manage">
+                                    <i class="fas fa-cogs"></i>
+                                    Gestionar
+                                </button>
+                                <button class="btn btn-outline" data-action="chat">
+                                    <i class="fas fa-comments"></i>
+                                    Chat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="my-circle-card joined">
+                            <div class="circle-badge member">Miembro</div>
+                            <div class="circle-header">
+                                <div class="circle-avatar">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div class="circle-info">
+                                    <h3>Química Experimental</h3>
+                                    <p>Ciencias • 9no Grado</p>
+                                    <div class="circle-status online">
+                                        <i class="fas fa-circle"></i>
+                                        18 miembros activos
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="circle-activity">
+                                <div class="activity-item">
+                                    <i class="fas fa-message"></i>
+                                    <span>2 mensajes nuevos</span>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Próxima sesión: Mañana 4:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="circle-actions">
+                                <button class="btn btn-primary" data-action="enter">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Ingresar
+                                </button>
+                                <button class="btn btn-outline" data-action="leave">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Salir
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="my-circle-card joined">
+                            <div class="circle-badge member">Miembro</div>
+                            <div class="circle-header">
+                                <div class="circle-avatar">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="circle-info">
+                                    <h3>Literatura Hondureña</h3>
+                                    <p>Español • 10mo Grado</p>
+                                    <div class="circle-status offline">
+                                        <i class="fas fa-circle"></i>
+                                        15 miembros
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="circle-activity">
+                                <div class="activity-item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>Nuevo documento compartido</span>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Próxima sesión: Viernes 5:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="circle-actions">
+                                <button class="btn btn-primary" data-action="enter">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Ingresar
+                                </button>
+                                <button class="btn btn-outline" data-action="leave">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Salir
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="my-circle-card owned">
+                            <div class="circle-badge">Creador</div>
+                            <div class="circle-header">
+                                <div class="circle-avatar">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="circle-info">
+                                    <h3>English Conversation</h3>
+                                    <p>Inglés • 10mo Grado</p>
+                                    <div class="circle-status online">
+                                        <i class="fas fa-circle"></i>
+                                        28 miembros activos
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="circle-activity">
+                                <div class="activity-item">
+                                    <i class="fas fa-message"></i>
+                                    <span>12 mensajes nuevos</span>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>En sesión ahora</span>
+                                </div>
+                            </div>
+                            <div class="circle-actions">
+                                <button class="btn btn-success" data-action="join-session">
+                                    <i class="fas fa-video"></i>
+                                    Unirse a Sesión
+                                </button>
+                                <button class="btn btn-outline" data-action="manage">
+                                    <i class="fas fa-cogs"></i>
+                                    Gestionar
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="my-circle-card joined">
+                            <div class="circle-badge member">Miembro</div>
+                            <div class="circle-header">
+                                <div class="circle-avatar">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <div class="circle-info">
+                                    <h3>Historia de América Central</h3>
+                                    <p>Historia • 8vo Grado</p>
+                                    <div class="circle-status offline">
+                                        <i class="fas fa-circle"></i>
+                                        22 miembros
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="circle-activity">
+                                <div class="activity-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Material de estudio actualizado</span>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Próxima sesión: Sábado 2:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="circle-actions">
+                                <button class="btn btn-primary" data-action="enter">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Ingresar
+                                </button>
+                                <button class="btn btn-outline" data-action="leave">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Salir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="weekly-schedule">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-calendar-week"></i>
+                            Horario de Esta Semana
+                        </h2>
+                        </div>
+                </section>
+                
+            </div> </main> </div> </body>
+</html>

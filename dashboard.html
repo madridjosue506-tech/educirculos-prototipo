@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - EduCírculos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduCírculos</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <!-- Navegación Principal -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Principal</h4>
+                    <a href="dashboard.html" class="nav-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="pages/cursos.html" class="nav-item">
+                        <i class="fas fa-book-open"></i>
+                        <span>Cursos</span>
+                    </a>
+                    <a href="pages/circulos.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Círculos de Estudio</span>
+                    </a>
+                    <a href="pages/mis-circulos.html" class="nav-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Mis Círculos</span>
+                    </a>
+                </div>
+
+                <!-- Mi Aprendizaje -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Mi Aprendizaje</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Mi Progreso</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificados</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Guardados</span>
+                    </a>
+                </div>
+
+                <!-- Recompensas -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Recompensas</h4>
+                    <a href="pages/educreditos.html" class="nav-item">
+                        <i class="fas fa-coins"></i>
+                        <span>EduCréditos</span>
+                        <span class="nav-badge educreditos-count">2,450</span>
+                    </a>
+                    <a href="pages/ganancias.html" class="nav-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Logros</span>
+                    </a>
+                    <a href="pages/planes.html" class="nav-item">
+                        <i class="fas fa-crown"></i>
+                        <span>Planes Premium</span>
+                    </a>
+                </div>
+
+                <!-- Configuración -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Cuenta</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Ayuda</span>
+                    </a>
+                    <a href="index.html" class="nav-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Barra Superior -->
+            <header class="top-bar">
+                <div class="page-info">
+                    <h1 class="page-title">Dashboard</h1>
+                    <p class="page-subtitle">Bienvenido de vuelta, continúa tu aprendizaje</p>
+                </div>
+
+                <div class="top-bar-actions">
+                    <!-- Notificaciones -->
+                    <button class="icon-btn" id="notificationsBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+
+                    <!-- Búsqueda -->
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Buscar cursos, círculos...">
+                    </div>
+
+                    <!-- Usuario -->
+                    <div class="user-menu">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <span class="user-name">Ana García</span>
+                            <span class="user-level">Nivel Avanzado</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Área de Contenido -->
+            <div class="content-area">
+                <!-- Estadísticas Principales -->
+                <section class="stats-section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="courses-completed">25</h3>
+                                <p>Cursos Completados</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="educredits-earned">2,450</h3>
+                                <p>EduCréditos Ganados</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="study-hours">200</h3>
+                                <p>Horas de Estudio</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="certificates">8</h3>
+                                <p>Certificados Obtenidos</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contenido Principal del Dashboard -->
+                <div class="dashboard-grid">
+                    <!-- Columna Izquierda -->
+                    <div class="dashboard-left">
+                        <!-- Progreso de la Semana -->
+                        <section class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">
+                                    <i class="fas fa-calendar-week"></i>
+                                    Progreso de esta Semana
+                                </h2>
+                            </div>
+                            <div class="card-content">
+                                <div class="progress-item">
+                                    <div class="progress-info">
+                                        <span class="progress-label">Álgebra Avanzada</span>
+                                        <span class="progress-percent">85%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-item">
+                                    <div class="progress-info">
+                                        <span class="progress-label">Historia de Honduras</span>
+                                        <span class="progress-percent">60%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-item">
+                                    <div class="progress-info">
+                                        <span class="progress-label">Química Básica</span>
+                                        <span class="progress-percent">40%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Cursos Recomendados -->
+                        <section class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">
+                                    <i class="fas fa-star"></i>
+                                    Recomendados para Ti
+                                </h2>
+                            </div>
+                            <div class="card-content">
+                                <div class="recommended-courses">
+                                    <div class="course-item">
+                                        <div class="course-thumbnail">
+                                            <i class="fas fa-globe-americas"></i>
+                                        </div>
+                                        <div class="course-info">
+                                            <h4>Geografía de Centroamérica</h4>
+                                            <p>Explora la geografía de nuestra región</p>
+                                            <div class="course-meta">
+                                                <span class="course-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    4.8
+                                                </span>
+                                                <span class="course-duration">30 horas</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm">Ver Curso</button>
+                                    </div>
+                                    <div class="course-item">
+                                        <div class="course-thumbnail">
+                                            <i class="fas fa-dna"></i>
+                                        </div>
+                                        <div class="course-info">
+                                            <h4>Biología Molecular</h4>
+                                            <p>Fundamentos de la vida a nivel molecular</p>
+                                            <div class="course-meta">
+                                                <span class="course-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    4.7
+                                                </span>
+                                                <span class="course-duration">25 horas</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm">Ver Curso</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Columna Derecha -->
+                    <div class="dashboard-right">
+                        <!-- Acciones Rápidas -->
+                        <section class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">
+                                    <i class="fas fa-bolt"></i>
+                                    Acciones Rápidas
+                                </h2>
+                            </div>
+                            <div class="card-content">
+                                <div class="quick-actions">
+                                    <button class="quick-action" data-action="new-course">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <span>Nuevo Curso</span>
+                                    </button>
+                                    <button class="quick-action" data-action="join-circle">
+                                        <i class="fas fa-users"></i>
+                                        <span>Unirse a Círculo</span>
+                                    </button>
+                                    <button class="quick-action" data-action="view-progress">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <span>Ver Progreso</span>
+                                    </button>
+                                    <button class="quick-action" data-action="get-help">
+                                        <i class="fas fa-question-circle"></i>
+                                        <span>Obtener Ayuda</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Actividad Reciente -->
+                        <section class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">
+                                    <i class="fas fa-history"></i>
+                                    Actividad Reciente
+                                </h2>
+                            </div>
+                            <div class="card-content">
+                                <div class="activity-list">
+                                    <!-- Se llena dinámicamente con JavaScript -->
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Próximas Fechas -->
+                        <section class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Próximas Fechas
+                                </h2>
+                            </div>
+                            <div class="card-content">
+                                <div class="upcoming-events">
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <span class="day">15</span>
+                                            <span class="month">DIC</span>
+                                        </div>
+                                        <div class="event-info">
+                                            <h4>Examen Final: Álgebra</h4>
+                                            <p>3:00 PM - 5:00 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <span class="day">18</span>
+                                            <span class="month">DIC</span>
+                                        </div>
+                                        <div class="event-info">
+                                            <h4>Reunión: Círculo de Química</h4>
+                                            <p>7:00 PM - 8:00 PM</p>
+                                        </div>
+                                    </div>
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <span class="day">22</span>
+                                            <span class="month">DIC</span>
+                                        </div>
+                                        <div class="event-info">
+                                            <h4>Entrega: Proyecto Historia</h4>
+                                            <p>Hasta las 11:59 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- AI Assistant Button (Fixed) -->
+    <div class="ai-assistant-fab" id="aiAssistantFab">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- AI Assistant Chat -->
+    <div class="ai-chat" id="aiChat">
+        <div class="ai-chat-header">
+            <div class="ai-chat-title">
+                <i class="fas fa-robot"></i>
+                <span>Asistente EduCírculos</span>
+            </div>
+            <button class="ai-chat-close" id="aiChatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+        </div>
+        <div class="ai-chat-input">
+            <input type="text" id="aiChatInput" placeholder="Pregúntame sobre tus cursos...">
+            <button id="aiChatSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+
+    <style>
+        /* Estilos específicos para el dashboard */
+        .page-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-subtitle {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-top: var(--spacing-xs);
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .icon-btn {
+            position: relative;
+            background: none;
+            border: none;
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+            color: var(--gray-600);
+        }
+
+        .icon-btn:hover {
+            background: var(--gray-100);
+            color: var(--gray-800);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--error);
+            color: var(--white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: var(--spacing-md);
+            color: var(--gray-400);
+        }
+
+        .search-box input {
+            padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 2.5rem;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            background: var(--white);
+            width: 300px;
+            transition: all var(--transition-fast);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .user-level {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .nav-badge {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-semibold);
+            margin-left: auto;
+        }
+
+        .stats-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            transition: all var(--transition-normal);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--extra-light-blue) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon i {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .stat-content h3 {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-content p {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-2xl);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--gray-200);
+            margin-bottom: var(--spacing-xl);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: var(--spacing-xl);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .card-title i {
+            color: var(--primary-blue);
+        }
+
+        .card-content {
+            padding: var(--spacing-xl);
+        }
+
+        .progress-item {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .progress-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .progress-label {
+            font-weight: var(--font-weight-medium);
+            color: var(--gray-700);
+        }
+
+        .progress-percent {
+            font-size: 0.875rem;
+            color: var(--primary-blue);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            border-radius: var(--radius-sm);
+            transition: width var(--transition-slow);
+        }
+
+        .recommended-courses {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .course-item {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+            padding: var(--spacing-md);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+        }
+
+        .course-item:hover {
+            border-color: var(--primary-blue);
+            background: var(--extra-light-blue);
+        }
+
+        .course-thumbnail {
+            width: 50px;
+            height: 50px;
+            background: var(--light-blue);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .course-thumbnail i {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+        }
+
+        .course-info {
+            flex: 1;
+        }
+
+        .course-info h4 {
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .course-info p {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .course-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.75rem;
+        }
+
+        .course-rating {
+            color: var(--warning);
+        }
+
+        .course-duration {
+            color: var(--gray-500);
+        }
+
+        .btn-sm {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            font-size: 0.75rem;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .quick-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-lg);
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            color: var(--gray-700);
+        }
+
+        .quick-action:hover {
+            background: var(--light-blue);
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .quick-action i {
+            font-size: 1.5rem;
+        }
+
+        .quick-action span {
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-medium);
+            text-align: center;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .activity-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .activity-icon i {
+            color: var(--primary-blue);
+            font-size: 1rem;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-medium);
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .upcoming-events {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .event-item {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+            padding: var(--spacing-md);
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .event-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 50px;
+        }
+
+        .event-date .day {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+
+        .event-date .month {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            font-weight: var(--font-weight-semibold);
+            text-transform: uppercase;
+        }
+
+        .event-info h4 {
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .event-info p {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box input {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .stat-card {
+                padding: var(--spacing-lg);
+                gap: var(--spacing-md);
+            }
+
+            .stat-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .stat-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .top-bar-actions {
+                gap: var(--spacing-sm);
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .user-menu .user-info {
+                display: none;
+            }
+        }
+    </style>
+</body>
+</html>

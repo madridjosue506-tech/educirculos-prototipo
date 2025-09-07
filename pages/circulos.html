@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Círculos de Estudio - EduCírculos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Estilos específicos para círculos de estudio */
+        .circles-header {
+            background: var(--white);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--gray-200);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .circles-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            transition: all var(--transition-normal);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-item i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .stat-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gray-900);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: var(--spacing-xs);
+        }
+
+        .filters-panel {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--gray-200);
+            margin-bottom: var(--spacing-2xl);
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            align-items: end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            min-width: 150px;
+        }
+
+        .filter-group label {
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--gray-700);
+        }
+
+        .filter-select {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            background: var(--white);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: border-color var(--transition-fast);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .recommended-section {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .recommended-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: var(--spacing-2xl);
+        }
+
+        .circle-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .circle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-blue);
+        }
+
+        .circle-card.recommended {
+            border-color: var(--primary-blue);
+            position: relative;
+        }
+
+        .circle-card.recommended::before {
+            content: 'Recomendado';
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-semibold);
+            z-index: 1;
+        }
+
+        .circle-header {
+            padding: var(--spacing-xl);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .circle-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--extra-light-blue) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .circle-avatar i {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .circle-info {
+            flex: 1;
+        }
+
+        .circle-name {
+            font-size: 1.125rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .circle-subject {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .circle-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-medium);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+        }
+
+        .circle-status.online {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .circle-status.offline {
+            background: rgba(107, 114, 128, 0.1);
+            color: var(--gray-500);
+        }
+
+        .circle-status i {
+            font-size: 0.5rem;
+        }
+
+        .circle-content {
+            padding: var(--spacing-xl);
+            flex: 1;
+        }
+
+        .circle-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .circle-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .circle-meta span {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .circle-schedule {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--light-blue);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            color: var(--primary-blue);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .circle-actions {
+            padding: var(--spacing-xl);
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .btn-join {
+            flex: 1;
+        }
+
+        .all-circles-section {
+            background: var(--white);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--gray-200);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .view-controls {
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+
+        .view-btn {
+            padding: var(--spacing-sm);
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .view-btn:hover, .view-btn.active {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .circles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-xl);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .modal-header {
+            padding: var(--spacing-2xl);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gray-900);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--gray-400);
+            cursor: pointer;
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+
+        .modal-close:hover {
+            background: var(--gray-100);
+            color: var(--gray-600);
+        }
+
+        .modal-body {
+            padding: var(--spacing-2xl);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .form-group label {
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--gray-700);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: var(--spacing-md);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            transition: border-color var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            cursor: pointer;
+            font-size: 0.875rem;
+            color: var(--gray-700);
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            accent-color: var(--primary-blue);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: flex-end;
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .recommended-grid,
+            .circles-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .circles-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+
+            .filters-panel {
+                flex-direction: column;
+                align-items: stretch;
+                gap: var(--spacing-md);
+            }
+
+            .filter-group {
+                min-width: auto;
+            }
+
+            .recommended-grid,
+            .circles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .circle-header {
+                padding: var(--spacing-lg);
+            }
+
+            .circle-content {
+                padding: var(--spacing-md);
+            }
+
+            .circle-actions {
+                padding: var(--spacing-lg);
+                flex-direction: column;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: var(--spacing-lg);
+                max-width: calc(100vw - 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .circles-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item {
+                padding: var(--spacing-md);
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                align-items: stretch;
+            }
+
+            .circles-header,
+            .filters-panel,
+            .all-circles-section {
+                padding: var(--spacing-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduCírculos</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Principal</h4>
+                    <a href="../dashboard.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="cursos.html" class="nav-item">
+                        <i class="fas fa-book-open"></i>
+                        <span>Cursos</span>
+                    </a>
+                    <a href="circulos.html" class="nav-item active">
+                        <i class="fas fa-users"></i>
+                        <span>Círculos de Estudio</span>
+                    </a>
+                    <a href="mis-circulos.html" class="nav-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Mis Círculos</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Mi Aprendizaje</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Mi Progreso</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificados</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Guardados</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Recompensas</h4>
+                    <a href="educreditos.html" class="nav-item">
+                        <i class="fas fa-coins"></i>
+                        <span>EduCréditos</span>
+                        <span class="nav-badge educreditos-count">2,450</span>
+                    </a>
+                    <a href="ganancias.html" class="nav-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Logros</span>
+                    </a>
+                    <a href="planes.html" class="nav-item">
+                        <i class="fas fa-crown"></i>
+                        <span>Planes Premium</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Cuenta</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Ayuda</span>
+                    </a>
+                    <a href="../index.html" class="nav-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="page-info">
+                    <h1 class="page-title">Círculos de Estudio</h1>
+                    <p class="page-subtitle">Únete a grupos colaborativos de aprendizaje</p>
+                </div>
+
+                <div class="top-bar-actions">
+                    <button class="btn btn-primary" id="createCircleBtn">
+                        <i class="fas fa-plus"></i>
+                        Crear Círculo
+                    </button>
+
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="search-circles" placeholder="Buscar círculos...">
+                    </div>
+
+                    <div class="user-menu">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <span class="user-name">Ana García</span>
+                            <span class="user-level">Nivel Avanzado</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <section class="circles-header">
+                    <div class="circles-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-content">
+                                <span class="stat-number">150+</span>
+                                <span class="stat-label">Círculos Activos</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-user-friends"></i>
+                            <div class="stat-content">
+                                <span class="stat-number">2,500+</span>
+                                <span class="stat-label">Miembros</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comments"></i>
+                            <div class="stat-content">
+                                <span class="stat-number">10K+</span>
+                                <span class="stat-label">Discusiones</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-calendar-week"></i>
+                            <div class="stat-content">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Sesiones Esta Semana</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="filters-panel">
+                    <div class="filter-group">
+                        <label>Materia:</label>
+                        <select class="filter-select">
+                            <option value="">Todas las materias</option>
+                            <option value="matematicas">Matemáticas</option>
+                            <option value="ciencias">Ciencias</option>
+                            <option value="espanol">Español</option>
+                            <option value="historia">Historia</option>
+                            <option value="ingles">Inglés</option>
+                            <option value="geografia">Geografía</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Nivel:</label>
+                        <select class="filter-select">
+                            <option value="">Todos los niveles</option>
+                            <option value="7mo">7mo Grado</option>
+                            <option value="8vo">8vo Grado</option>
+                            <option value="9no">9no Grado</option>
+                            <option value="10mo">10mo Grado</option>
+                            <option value="11vo">11vo Grado</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Modalidad:</label>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">Todos</button>
+                            <button class="filter-btn" data-filter="virtual">Virtual</button>
+                            <button class="filter-btn" data-filter="presencial">Presencial</button>
+                            <button class="filter-btn" data-filter="hibrido">Híbrido</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Estado:</label>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">Todos</button>
+                            <button class="filter-btn" data-filter="abierto">Abierto</button>
+                            <button class="filter-btn" data-filter="activo">Activo Ahora</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="recommended-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-magic"></i>
+                        Recomendados Para Ti
+                    </h2>
+                    <div class="recommended-grid">
+                        <div class="circle-card recommended">
+                            <div class="circle-header">
+                                <div class="circle-avatar">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="circle-info">
+                                    <h3 class="circle-name">Álgebra Avanzada 10mo</h3>
+                                    <p class="circle-subject">Matemáticas • 10mo Grado</p>
+                                </div>
+                                <div class="circle-status online">
+                                    <i class="fas fa-circle"></i>
+                                    Activo
+                                </div>
+                            </div>
+                            <div class="circle-content">
+                                <p class="circle-description">
+                                    Grupo de estudio enfocado en resolver problemas complejos de álgebra. 
+                                    Sesiones virtuales diarias y resolución colaborativa de ejercicios.
+                                </p>
+                                <div class="circle-meta">
+                                    <span class="circle-members">
+                                        <i class="fas fa-users"></i>
+                                        24 miembros
+                                    </span>
+                                    <span class="circle-activity">
+                                        <i class="fas fa-clock"></i>
+                                        Última actividad: hace 30 min
+                                    </span>
+                                    <span class="circle-mode">
+                                        <i class="fas fa-video"></i>
+                                        Virtual
+                                    </span>
+                                </div>
+                                <div class="circle-schedule">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Próxima sesión: Hoy 7:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="circle-actions">
+                                <button class="btn btn-primary btn-join">
+                                    <i class="fas fa-plus-circle"></i>
+                                    Unirse
+                                </button>
+                                <button class="btn btn-outline btn-preview">
+                                    <i class="fas fa-eye"></i>
+                                    Vista Previa
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="circle-card recommended">
+                            <div class="circle-header">
+                                <div class="circle-avatar">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div class="circle-info">
+                                    <h3 class="circle-name">Química Experimental</h3>
+                                    <p class="circle-subject">Ciencias • 9no Grado</p>
+                                </div>
+                                <div class="circle-status offline">
+                                    <i class="fas fa-circle"></i>
+                                    Inactivo
+                                </div>
+                            </div>
+                            <div class="circle-content">
+                                <p class="circle-description">
+                                    Exploramos la química a través de experimentos virtuales y discusiones. 
+                                    Compartimos hallazgos y resolvemos problemas juntos.
+                                </p>
+                                <div class="circle-meta">
+                                    <span class="circle-members">
+                                        <i class="fas fa-users"></i>
+                                        18 miembros
+                                    </span>
+                                    <span class="circle-activity">
+                                        <i class="fas fa-clock"></i>
+                                        Última actividad: hace 2 horas
+                                    </span>
+                                    <span class="circle-mode">
+                                        <i class="fas fa-laptop"></i>
+                                        Híbrido
+                                    </span>
+                                </div>
+                                <div class="circle-schedule">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Próxima sesión: Mañana 4:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="circle-actions">
+                                <button class="btn btn-primary btn-join">
+                                    <i class="fas fa-plus-circle"></i>
+                                    Unirse
+                                </button>
+                                <button class="btn btn-outline btn-preview">
+                                    <i class="fas fa-eye"></i>
+                                    Vista Previa
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="all-circles-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-list"></i>
+                            Todos los Círculos
+                        </h2>
+                        <div class="view-controls">
+                            <button class="view-btn active" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="circles-grid" id="circlesGrid">
+                        </div>
+
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Anterior
+                        </button>
+                        <div class="pagination-numbers">
+                            <button class="pagination-number active">1</button>
+                            <button class="pagination-number">2</button>
+                            <button class="pagination-number">3</button>
+                            <span class="pagination-dots">...</span>
+                            <button class="pagination-number">8</button>
+                        </div>
+                        <button class="pagination-btn">
+                            Siguiente
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="createCircleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Crear Nuevo Círculo de Estudio</h2>
+                <button class="modal-close" id="closeCreateModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="modal-body" id="createCircleForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="circleName">Nombre del Círculo*</label>
+                        <input type="text" id="circleName" name="name" required placeholder="Ej: Álgebra para Principiantes">
+                    </div>
+                    <div class="form-group">
+                        <label for="circleSubject">Materia*</label>
+                        <select id="circleSubject" name="subject" required>
+                            <option value="">Seleccionar materia</option>
+                            <option value="matematicas">Matemáticas</option>
+                            <option value="ciencias">Ciencias</option>
+                            <option value="espanol">Español</option>
+                            <option value="historia">Historia</option>
+                            <option value="ingles">Inglés</option>
+                            <option value="geografia">Geografía</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="circleLevel">Nivel Educativo*</label>
+                        <select id="circleLevel" name="level" required>
+                            <option value="">Seleccionar nivel</option>
+                            <option value="7mo">7mo Grado</option>
+                            <option value="8vo">8vo Grado</option>
+                            <option value="9no">9no Grado</option>
+                            <option value="10mo">10mo Grado</option>
+                            <option value="11vo">11vo Grado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="circleMode">Modalidad*</label>
+                        <select id="circleMode" name="mode" required>
+                            <option value="">Seleccionar modalidad</option>
+                            <option value="virtual">Virtual</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="hibrido">Híbrido</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="circleDescription">Descripción*</label>
+                    <textarea id="circleDescription" name="description" required rows="3" 
+                              placeholder="Describe el propósito y objetivos del círculo..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="maxMembers">Máximo de Miembros</label>
+                        <input type="number" id="maxMembers" name="maxMembers" min="5" max="50" value="20">
+                    </div>
+                    <div class="form-group">
+                        <label for="circleSchedule">Horario de Reuniones</label>
+                        <input type="text" id="circleSchedule" name="schedule" 
+                               placeholder="Ej: Lunes y Miércoles 7:00 PM">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="isPrivate">
+                        <span class="checkmark"></span>
+                        Círculo privado (requiere aprobación para unirse)
+                    </label>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" id="cancelCreate">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus-circle"></i>
+                        Crear Círculo
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="ai-assistant-fab" id="aiAssistantFab">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div class="ai-chat" id="aiChat">
+        <div class="ai-chat-header">
+            <div class="ai-chat-title">
+                <i class="fas fa-robot"></i>
+                <span>Asistente EduCírculos</span>
+            </div>
+            <button class="ai-chat-close" id="aiChatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+        </div>
+        <div class="ai-chat-input">
+            <input type="text" id="aiChatInput" placeholder="¿Necesitas ayuda encontrando un círculo?">
+            <button id="aiChatSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="../assets/js/app.js"></script>
+
+    <script>
+        // JavaScript específico para círculos de estudio
+        document.addEventListener('DOMContentLoaded', function() {
+            // Datos de ejemplo para círculos
+            const circlesData = [
+                {
+                    id: 1,
+                    name: 'Matemáticas 9no CNB',
+                    subject: 'Matemáticas',
+                    level: '9no Grado',
+                    description: 'Resolvemos problemas del CNB de matemáticas para 9no grado con ejercicios prácticos.',
+                    members: 32,
+                    maxMembers: 40,
+                    mode: 'Virtual',
+                    status: 'online',
+                    lastActivity: 'hace 15 min',
+                    schedule: 'Lunes y Miércoles 6:00 PM',
+                    icon: 'calculator'
+                },
+                {
+                    id: 2,
+                    name: 'Química Orgánica',
+                    subject: 'Ciencias',
+                    level: '11vo Grado',
+                    description: 'Estudiamos compuestos orgánicos y reacciones químicas de forma colaborativa.',
+                    members: 18,
+                    maxMembers: 25,
+                    mode: 'Híbrido',
+                    status: 'offline',
+                    lastActivity: 'hace 1 hora',
+                    schedule: 'Martes y Jueves 7:00 PM',
+                    icon: 'flask'
+                },
+                {
+                    id: 3,
+                    name: 'Literatura Hondureña',
+                    subject: 'Español',
+                    level: '10mo Grado',
+                    description: 'Exploramos obras de autores hondureños y analizamos textos literarios.',
+                    members: 15,
+                    maxMembers: 20,
+                    mode: 'Virtual',
+                    status: 'online',
+                    lastActivity: 'hace 30 min',
+                    schedule: 'Viernes 5:00 PM',
+                    icon: 'book'
+                },
+                {
+                    id: 4,
+                    name: 'Historia de América Central',
+                    subject: 'Historia',
+                    level: '8vo Grado',
+                    description: 'Estudiamos la rica historia de Centroamérica desde la época precolombina.',
+                    members: 22,
+                    maxMembers: 30,
+                    mode: 'Presencial',
+                    status: 'offline',
+                    lastActivity: 'hace 3 horas',
+                    schedule: 'Sábados 2:00 PM',
+                    icon: 'landmark'
+                },
+                {
+                    id: 5,
+                    name: 'English Conversation',
+                    subject: 'Inglés',
+                    level: '10mo Grado',
+                    description: 'Practicamos inglés conversacional con nativos y estudiantes avanzados.',
+                    members: 28,
+                    maxMembers: 35,
+                    mode: 'Virtual',
+                    status: 'online',
+                    lastActivity: 'hace 5 min',
+                    schedule: 'Todos los días 4:00 PM',
+                    icon: 'comments'
+                },
+                {
+                    id: 6,
+                    name: 'Geografía de Honduras',
+                    subject: 'Geografía',
+                    level: '7mo Grado',
+                    description: 'Conocemos la geografía física y humana de nuestro hermoso país.',
+                    members: 20,
+                    maxMembers: 25,
+                    mode: 'Híbrido',
+                    status: 'offline',
+                    lastActivity: 'hace 2 horas',
+                    schedule: 'Miércoles 3:00 PM',
+                    icon: 'globe-americas'
+                }
+            ];
+
+            // Renderizar círculos
+            function renderCircles(circles = circlesData) {
+                const grid = document.getElementById('circlesGrid');
+                if (!grid) return;
+
+                grid.innerHTML = circles.map(circle => `
+                    <div class="circle-card" data-id="${circle.id}">
+                        <div class="circle-header">
+                            <div class="circle-avatar">
+                                <i class="fas fa-${circle.icon}"></i>
+                            </div>
+                            <div class="circle-info">
+                                <h3 class="circle-name">${circle.name}</h3>
+                                <p class="circle-subject">${circle.subject} • ${circle.level}</p>
+                            </div>
+                            <div class="circle-status ${circle.status}">
+                                <i class="fas fa-circle"></i>
+                                ${circle.status === 'online' ? 'Activo' : 'Inactivo'}
+                            </div>
+                        </div>
+                        <div class="circle-content">
+                            <p class="circle-description">${circle.description}</p>
+                            <div class="circle-meta">
+                                <span class="circle-members">
+                                    <i class="fas fa-users"></i>
+                                    ${circle.members}/${circle.maxMembers} miembros
+                                </span>
+                                <span class="circle-activity">
+                                    <i class="fas fa-clock"></i>
+                                    Última actividad: ${circle.lastActivity}
+                                </span>
+                                <span class="circle-mode">
+                                    <i class="fas fa-${circle.mode === 'Virtual' ? 'video' : circle.mode === 'Presencial' ? 'users' : 'laptop'}"></i>
+                                    ${circle.mode}
+                                </span>
+                            </div>
+                            <div class="circle-schedule">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>${circle.schedule}</span>
+                            </div>
+                        </div>
+                        <div class="circle-actions">
+                            <button class="btn btn-primary btn-join" data-circle-id="${circle.id}">
+                                <i class="fas fa-plus-circle"></i>
+                                Unirse
+                            </button>
+                            <button class="btn btn-outline btn-preview" data-circle-id="${circle.id}">
+                                <i class="fas fa-eye"></i>
+                                Vista Previa
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Agregar event listeners
+                setupCircleActions();
+            }
+
+            // Configurar acciones de círculos
+            function setupCircleActions() {
+                document.querySelectorAll('.btn-join').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const circleId = parseInt(e.target.closest('.btn-join').dataset.circleId);
+                        joinCircle(circleId);
+                    });
+                });
+
+                document.querySelectorAll('.btn-preview').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const circleId = parseInt(e.target.closest('.btn-preview').dataset.circleId);
+                        previewCircle(circleId);
+                    });
+                });
+            }
+
+            // Unirse a círculo
+            function joinCircle(circleId) {
+                const circle = circlesData.find(c => c.id === circleId);
+                if (circle) {
+                    // Aquí iría la lógica para unirse al círculo
+                    if (typeof Utils !== 'undefined') {
+                        Utils.showNotification(`Te has unido al círculo: ${circle.name}`, 'success');
+                    } else {
+                        alert(`Te has unido al círculo: ${circle.name}`);
+                    }
+                }
+            }
+
+            // Vista previa de círculo
+            function previewCircle(circleId) {
+                const circle = circlesData.find(c => c.id === circleId);
+                if (circle) {
+                    if (typeof Utils !== 'undefined') {
+                        Utils.showNotification(`Cargando vista previa de: ${circle.name}`, 'info');
+                    } else {
+                        alert(`Vista previa de: ${circle.name}`);
+                    }
+                }
+            }
+
+            // Modal para crear círculo
+            const createBtn = document.getElementById('createCircleBtn');
+            const modal = document.getElementById('createCircleModal');
+            const closeBtn = document.getElementById('closeCreateModal');
+            const cancelBtn = document.getElementById('cancelCreate');
+            const form = document.getElementById('createCircleForm');
+
+            if (createBtn && modal) {
+                createBtn.addEventListener('click', () => {
+                    modal.classList.add('active');
+                });
+            }
+
+            if (closeBtn && modal) {
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.remove('active');
+                });
+            }
+
+            if (cancelBtn && modal) {
+                cancelBtn.addEventListener('click', () => {
+                    modal.classList.remove('active');
+                });
+            }
+
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                    }
+                });
+            }
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const circleName = formData.get('name');
+                    
+                    if (typeof Utils !== 'undefined') {
+                        Utils.showNotification(`Círculo "${circleName}" creado exitosamente`, 'success');
+                    } else {
+                        alert(`Círculo "${circleName}" creado exitosamente`);
+                    }
+                    
+                    modal.classList.remove('active');
+                    form.reset();
+                });
+            }
+
+            // Filtros
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const filterType = e.target.parentElement;
+                    filterType.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    // Aquí iría la lógica de filtrado
+                    const filter = e.target.dataset.filter;
+                    console.log('Filtrar por:', filter);
+                });
+            });
+
+            // Búsqueda
+            const searchInput = document.querySelector('.search-circles');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const filteredCircles = circlesData.filter(circle =>
+                        circle.name.toLowerCase().includes(searchTerm) ||
+                        circle.description.toLowerCase().includes(searchTerm) ||
+                        circle.subject.toLowerCase().includes(searchTerm)
+                    );
+                    renderCircles(filteredCircles);
+                });
+            }
+
+            // Vista de cuadrícula vs lista
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    const view = e.target.dataset.view;
+                    const grid = document.getElementById('circlesGrid');
+                    
+                    if (view === 'list') {
+                        grid.style.gridTemplateColumns = '1fr';
+                    } else {
+                        grid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(400px, 1fr))';
+                    }
+                });
+            });
+
+            // Inicializar
+            renderCircles();
+        });
+    </script>
+</body>
+</html>
