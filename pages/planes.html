@@ -3,31 +3,1239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planes - EduCírculos</title>
+    <title>Planes Premium - EduCírculos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div id="navbar"></div>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduCírculos</span>
+            </div>
 
-    <section class="planes">
-        <h2>Planes Disponibles</h2>
-        <div class="plan-cards">
-            <div class="plan-card">
-                <h3>Básico</h3>
-                <p>Gratis</p>
+            <nav class="sidebar-nav">
+                <!-- Navegación Principal -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Principal</h4>
+                    <a href="../dashboard.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="cursos.html" class="nav-item">
+                        <i class="fas fa-book-open"></i>
+                        <span>Cursos</span>
+                    </a>
+                    <a href="circulos.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Círculos de Estudio</span>
+                    </a>
+                    <a href="mis-circulos.html" class="nav-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Mis Círculos</span>
+                    </a>
+                </div>
+
+                <!-- Mi Aprendizaje -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Mi Aprendizaje</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Mi Progreso</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificados</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Guardados</span>
+                    </a>
+                </div>
+
+                <!-- Recompensas -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Recompensas</h4>
+                    <a href="educreditos.html" class="nav-item">
+                        <i class="fas fa-coins"></i>
+                        <span>EduCréditos</span>
+                        <span class="nav-badge educreditos-count">2,450</span>
+                    </a>
+                    <a href="ganancias.html" class="nav-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Logros</span>
+                    </a>
+                    <a href="planes.html" class="nav-item active">
+                        <i class="fas fa-crown"></i>
+                        <span>Planes Premium</span>
+                    </a>
+                </div>
+
+                <!-- Configuración -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Cuenta</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Ayuda</span>
+                    </a>
+                    <a href="../index.html" class="nav-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Barra Superior -->
+            <header class="top-bar">
+                <div class="page-info">
+                    <h1 class="page-title">Planes Premium</h1>
+                    <p class="page-subtitle">Desbloquea todo el potencial de tu aprendizaje</p>
+                </div>
+
+                <div class="top-bar-actions">
+                    <!-- Estado Premium -->
+                    <div class="premium-status">
+                        <i class="fas fa-user"></i>
+                        <span>Plan Gratuito</span>
+                    </div>
+
+                    <!-- Usuario -->
+                    <div class="user-menu">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <span class="user-name">Ana García</span>
+                            <span class="user-level">Nivel Avanzado</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Área de Contenido -->
+            <div class="content-area">
+                <!-- Comparación de Planes -->
+                <section class="plans-comparison">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-crown"></i>
+                            Elige el Plan Perfecto para Ti
+                        </h2>
+                        <div class="billing-toggle">
+                            <span class="toggle-label">Mensual</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="billingToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="toggle-label">Anual <span class="discount">-20%</span></span>
+                        </div>
+                    </div>
+
+                    <div class="plans-grid">
+                        <!-- Plan Gratuito -->
+                        <div class="plan-card free">
+                            <div class="plan-header">
+                                <div class="plan-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h3>Plan Gratuito</h3>
+                                <p class="plan-description">Perfecto para comenzar tu viaje de aprendizaje</p>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-amount">L. 0</span>
+                                <span class="price-period">por siempre</span>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Acceso a cursos básicos</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>3 círculos de estudio</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Certificados básicos</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Soporte por email</span>
+                                </div>
+                                <div class="feature-item disabled">
+                                    <i class="fas fa-times"></i>
+                                    <span>Cursos premium</span>
+                                </div>
+                                <div class="feature-item disabled">
+                                    <i class="fas fa-times"></i>
+                                    <span>Tutoría personalizada</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline plan-btn current-plan" disabled>
+                                <i class="fas fa-check"></i>
+                                Plan Actual
+                            </button>
+                        </div>
+
+                        <!-- Plan Estudiante -->
+                        <div class="plan-card student">
+                            <div class="plan-header">
+                                <div class="plan-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>Plan Estudiante</h3>
+                                <p class="plan-description">Ideal para estudiantes activos y dedicados</p>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-amount monthly">L. 199</span>
+                                <span class="price-amount yearly" style="display: none;">L. 159</span>
+                                <span class="price-period monthly">por mes</span>
+                                <span class="price-period yearly" style="display: none;">por mes</span>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Todo del plan gratuito</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Acceso a todos los cursos</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Círculos ilimitados</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Certificados oficiales</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Análisis de progreso</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Soporte prioritario</span>
+                                </div>
+                                <div class="feature-item disabled">
+                                    <i class="fas fa-times"></i>
+                                    <span>Tutoría 1-a-1</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary plan-btn" data-plan="student">
+                                <i class="fas fa-rocket"></i>
+                                Actualizar Plan
+                            </button>
+                        </div>
+
+                        <!-- Plan Premium -->
+                        <div class="plan-card premium recommended">
+                            <div class="plan-badge">Más Popular</div>
+                            <div class="plan-header">
+                                <div class="plan-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h3>Plan Premium</h3>
+                                <p class="plan-description">La experiencia completa de aprendizaje</p>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-amount monthly">L. 399</span>
+                                <span class="price-amount yearly" style="display: none;">L. 319</span>
+                                <span class="price-period monthly">por mes</span>
+                                <span class="price-period yearly" style="display: none;">por mes</span>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Todo del plan estudiante</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Tutoría personalizada</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Cursos exclusivos</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Sesiones grupales premium</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Material descargable</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Sin anuncios</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Acceso offline</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary plan-btn premium-glow" data-plan="premium">
+                                <i class="fas fa-crown"></i>
+                                Obtener Premium
+                            </button>
+                        </div>
+
+                        <!-- Plan Institucional -->
+                        <div class="plan-card institutional">
+                            <div class="plan-header">
+                                <div class="plan-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h3>Plan Institucional</h3>
+                                <p class="plan-description">Para escuelas y organizaciones educativas</p>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-amount">Personalizado</span>
+                                <span class="price-period">contactar</span>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Todo del plan premium</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Usuarios ilimitados</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Panel de administración</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Reportes avanzados</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>API personalizada</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Soporte dedicado 24/7</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Capacitación incluida</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline plan-btn" data-plan="institutional">
+                                <i class="fas fa-phone"></i>
+                                Contactar Ventas
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Beneficios Premium -->
+                <section class="premium-benefits">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-star"></i>
+                            ¿Por qué elegir Premium?
+                        </h2>
+                    </div>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3>Tutoría Personalizada</h3>
+                            <p>Sesiones individuales con tutores expertos que se adaptan a tu estilo de aprendizaje y ritmo de estudio.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <h3>Acceso Ilimitado</h3>
+                            <p>Todos los cursos, materiales y recursos premium disponibles sin restricciones las 24 horas del día.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <h3>Contenido Offline</h3>
+                            <p>Descarga lecciones y materiales para estudiar sin conexión a internet desde cualquier dispositivo.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Análisis Avanzado</h3>
+                            <p>Reportes detallados de tu progreso, fortalezas y áreas de mejora con recomendaciones personalizadas.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3>Certificados Oficiales</h3>
+                            <p>Certificaciones reconocidas oficialmente que validan tus conocimientos ante empleadores e instituciones.</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3>Soporte Prioritario</h3>
+                            <p>Atención personalizada y respuesta inmediata a todas tus consultas técnicas y académicas.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonios -->
+                <section class="testimonials">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-quote-left"></i>
+                            Lo que dicen nuestros estudiantes Premium
+                        </h2>
+                    </div>
+
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"El plan Premium transformó completamente mi experiencia de aprendizaje. Las sesiones de tutoría me ayudaron a superar mis dificultades en matemáticas."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <div class="user-avatar">M</div>
+                                </div>
+                                <div class="author-info">
+                                    <h4>María González</h4>
+                                    <p>Estudiante de 10mo Grado</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"Los certificados oficiales me abrieron puertas en mi carrera. Ahora trabajo en una empresa internacional gracias a las habilidades que desarrollé."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <div class="user-avatar">C</div>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Carlos Mendoza</h4>
+                                    <p>Egresado Universitario</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"Como madre de familia, el acceso offline me permite estudiar en mis tiempos libres. Es la flexibilidad que necesitaba para crecer profesionalmente."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <div class="user-avatar">L</div>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Laura Herrera</h4>
+                                    <p>Profesional en Desarrollo</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ -->
+                <section class="faq-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-question-circle"></i>
+                            Preguntas Frecuentes
+                        </h2>
+                    </div>
+
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question" data-faq="1">
+                                <h3>¿Puedo cancelar mi suscripción en cualquier momento?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" id="faq-1">
+                                <p>Sí, puedes cancelar tu suscripción en cualquier momento desde tu perfil. No hay penalizaciones ni cargos adicionales por cancelación.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" data-faq="2">
+                                <h3>¿Qué métodos de pago aceptan?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" id="faq-2">
+                                <p>Aceptamos tarjetas de crédito, débito, transferencias bancarias y pagos con EduCréditos. También ofrecemos planes de financiamiento estudiantil.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" data-faq="3">
+                                <h3>¿Los certificados son reconocidos oficialmente?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" id="faq-3">
+                                <p>Sí, nuestros certificados Premium están avalados por el Ministerio de Educación de Honduras y son reconocidos por universidades e instituciones.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" data-faq="4">
+                                <h3>¿Hay descuentos para estudiantes?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" id="faq-4">
+                                <p>Ofrecemos descuentos especiales para estudiantes de instituciones educativas registradas. Contáctanos con tu carnet estudiantil para más información.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" data-faq="5">
+                                <h3>¿Puedo usar EduCréditos para pagar mi suscripción?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" id="faq-5">
+                                <p>¡Absolutamente! Puedes usar tus EduCréditos acumulados para pagar parcial o totalmente tu suscripción Premium. 500 EduCréditos = L. 100.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Final -->
+                <section class="final-cta">
+                    <div class="cta-content">
+                        <div class="cta-text">
+                            <h2>¿Listo para llevar tu aprendizaje al siguiente nivel?</h2>
+                            <p>Únete a miles de estudiantes que ya transformaron su educación con EduCírculos Premium</p>
+                        </div>
+                        <div class="cta-actions">
+                            <button class="btn btn-primary btn-large cta-btn" data-plan="premium">
+                                <i class="fas fa-crown"></i>
+                                Comenzar Premium
+                            </button>
+                            <button class="btn btn-outline btn-large" id="startTrialBtn">
+                                <i class="fas fa-play"></i>
+                                Prueba Gratuita 7 Días
+                            </button>
+                        </div>
+                        <div class="cta-guarantee">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Garantía de satisfacción de 30 días</span>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <div class="plan-card">
-                <h3>Pro</h3>
-                <p>$4.99 / mes</p>
+        </main>
+    </div>
+
+    <!-- AI Assistant Button (Fixed) -->
+    <div class="ai-assistant-fab" id="aiAssistantFab">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- AI Assistant Chat -->
+    <div class="ai-chat" id="aiChat">
+        <div class="ai-chat-header">
+            <div class="ai-chat-title">
+                <i class="fas fa-robot"></i>
+                <span>Asistente EduCírculos</span>
             </div>
-            <div class="plan-card">
-                <h3>Empresarial</h3>
-                <p>$1.99 / miembro</p>
-            </div>
+            <button class="ai-chat-close" id="aiChatClose">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-    </section>
+        <div class="ai-chat-messages" id="aiChatMessages">
+        </div>
+        <div class="ai-chat-input">
+            <input type="text" id="aiChatInput" placeholder="¿Qué plan me recomiendas?">
+            <button id="aiChatSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
 
-    <div id="footer"></div>
     <script src="../assets/js/app.js"></script>
+
+    <script>
+        // JavaScript específico para Planes Premium
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle de facturación mensual/anual
+            const billingToggle = document.getElementById('billingToggle');
+            if (billingToggle) {
+                billingToggle.addEventListener('change', function() {
+                    const isYearly = this.checked;
+                    const monthlyElements = document.querySelectorAll('.monthly');
+                    const yearlyElements = document.querySelectorAll('.yearly');
+                    
+                    monthlyElements.forEach(el => {
+                        el.style.display = isYearly ? 'none' : 'inline';
+                    });
+                    
+                    yearlyElements.forEach(el => {
+                        el.style.display = isYearly ? 'inline' : 'none';
+                    });
+                });
+            }
+
+            // Botones de selección de plan
+            document.querySelectorAll('.plan-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const plan = e.target.dataset.plan;
+                    
+                    if (plan) {
+                        let message = '';
+                        let type = 'info';
+                        
+                        switch(plan) {
+                            case 'student':
+                                message = '¡Genial elección! Te redirigiremos al proceso de pago para el Plan Estudiante.';
+                                type = 'success';
+                                break;
+                            case 'premium':
+                                message = '¡Excelente! Activando tu Plan Premium. Serás redirigido al checkout.';
+                                type = 'success';
+                                break;
+                            case 'institutional':
+                                message = 'Te contactaremos pronto para discutir las necesidades de tu institución.';
+                                type = 'info';
+                                break;
+                        }
+                        
+                        if (typeof Utils !== 'undefined') {
+                            Utils.showNotification(message, type);
+                        }
+                        
+                        // Simular redirección después de un delay
+                        if (plan !== 'institutional') {
+                            setTimeout(() => {
+                                if (typeof Utils !== 'undefined') {
+                                    Utils.showNotification('Procesando upgrade...', 'info');
+                                }
+                            }, 2000);
+                        }
+                    }
+                });
+            });
+
+            // Botón de prueba gratuita
+            const trialBtn = document.getElementById('startTrialBtn');
+            if (trialBtn) {
+                trialBtn.addEventListener('click', () => {
+                    if (typeof Utils !== 'undefined') {
+                        Utils.showNotification('¡Prueba gratuita de 7 días activada! Disfruta todas las funciones Premium.', 'success');
+                    }
+                    
+                    // Cambiar estado visual
+                    const premiumStatus = document.querySelector('.premium-status');
+                    if (premiumStatus) {
+                        premiumStatus.innerHTML = '<i class="fas fa-crown"></i><span>Prueba Premium</span>';
+                        premiumStatus.style.color = 'var(--primary-blue)';
+                    }
+                });
+            }
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqId = question.dataset.faq;
+                    const answer = document.getElementById(`faq-${faqId}`);
+                    const chevron = question.querySelector('i');
+                    
+                    // Cerrar otros FAQs
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        if (ans !== answer) {
+                            ans.classList.remove('active');
+                        }
+                    });
+                    
+                    document.querySelectorAll('.faq-question i').forEach(chev => {
+                        if (chev !== chevron) {
+                            chev.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle FAQ actual
+                    answer.classList.toggle('active');
+                    chevron.style.transform = answer.classList.contains('active') ? 
+                        'rotate(180deg)' : 'rotate(0deg)';
+                });
+            });
+
+            // Efectos visuales en las cards de planes
+            document.querySelectorAll('.plan-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    if (!card.classList.contains('free')) {
+                        card.style.transform = 'translateY(-8px)';
+                        card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '';
+                });
+            });
+
+            // Animación de aparición de elementos
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observar elementos para animación
+            document.querySelectorAll('.plan-card, .benefit-card, .testimonial-card').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Efecto de pulso en el botón Premium
+            const premiumBtn = document.querySelector('.premium-glow');
+            if (premiumBtn) {
+                setInterval(() => {
+                    premiumBtn.style.boxShadow = '0 0 20px rgba(37, 99, 235, 0.6)';
+                    setTimeout(() => {
+                        premiumBtn.style.boxShadow = '';
+                    }, 1000);
+                }, 3000);
+            }
+
+            // Calcular ahorros anuales
+            function updateSavings() {
+                const isYearly = billingToggle?.checked;
+                if (isYearly) {
+                    // Mostrar ahorros en las cards
+                    const studentCard = document.querySelector('.plan-card.student');
+                    const premiumCard = document.querySelector('.plan-card.premium');
+                    
+                    if (studentCard && premiumCard) {
+                        // Agregar badges de ahorro si no existen
+                        if (!studentCard.querySelector('.savings-badge')) {
+                            const studentSavings = document.createElement('div');
+                            studentSavings.className = 'savings-badge';
+                            studentSavings.innerHTML = '¡Ahorra L. 480!';
+                            studentCard.appendChild(studentSavings);
+                            
+                            const premiumSavings = document.createElement('div');
+                            premiumSavings.className = 'savings-badge';
+                            premiumSavings.innerHTML = '¡Ahorra L. 960!';
+                            premiumCard.appendChild(premiumSavings);
+                        }
+                    }
+                } else {
+                    // Remover badges de ahorro
+                    document.querySelectorAll('.savings-badge').forEach(badge => badge.remove());
+                }
+            }
+
+            if (billingToggle) {
+                billingToggle.addEventListener('change', updateSavings);
+            }
+
+            // Easter egg - triple click en el logo premium
+            const premiumIcons = document.querySelectorAll('.plan-card.premium .plan-icon');
+            premiumIcons.forEach(icon => {
+                let clickCount = 0;
+                icon.addEventListener('click', () => {
+                    clickCount++;
+                    if (clickCount === 3) {
+                        if (typeof Utils !== 'undefined') {
+                            Utils.showNotification('🎉 ¡Código secreto! Descuento especial del 15% aplicado', 'success');
+                        }
+                        clickCount = 0;
+                    }
+                    setTimeout(() => clickCount = 0, 2000);
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Estilos específicos para Planes Premium */
+        .premium-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-medium);
+            color: var(--gray-600);
+        }
+
+        .billing-toggle {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .toggle-label {
+            font-weight: var(--font-weight-medium);
+            color: var(--gray-700);
+        }
+
+        .discount {
+            background: var(--success);
+            color: var(--white);
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-bold);
+            margin-left: var(--spacing-xs);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray-300);
+            transition: var(--transition-fast);
+            border-radius: 12px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: var(--white);
+            transition: var(--transition-fast);
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--primary-blue);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-2xl);
+        }
+
+        .plan-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .plan-card.recommended {
+            border-color: var(--primary-blue);
+            position: relative;
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .plan-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--extra-light-blue) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .plan-card.recommended .plan-icon {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+        }
+
+        .plan-icon i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .plan-card.recommended .plan-icon i {
+            color: var(--white);
+        }
+
+        .plan-header h3 {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .plan-description {
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .plan-price {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gray-900);
+            line-height: 1;
+        }
+
+        .plan-card.recommended .price-amount {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-period {
+            display: block;
+            color: var(--gray-500);
+            font-size: 1rem;
+            margin-top: var(--spacing-sm);
+        }
+
+        .plan-features {
+            text-align: left;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.875rem;
+        }
+
+        .feature-item i {
+            width: 16px;
+            color: var(--success);
+        }
+
+        .feature-item.disabled {
+            opacity: 0.5;
+        }
+
+        .feature-item.disabled i {
+            color: var(--gray-400);
+        }
+
+        .plan-btn {
+            width: 100%;
+            padding: var(--spacing-lg);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .premium-glow {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            transition: all var(--transition-normal);
+        }
+
+        .current-plan {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            cursor: not-allowed;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-2xl);
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--gray-200);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .benefit-icon i {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-2xl);
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--gray-200);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-content {
+            flex: 1;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .testimonial-rating {
+            color: var(--warning);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .faq-question {
+            padding: var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-question h3 {
+            font-size: 1.125rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--gray-900);
+        }
+
+        .faq-question i {
+            color: var(--primary-blue);
+            transition: transform var(--transition-fast);
+        }
+
+        .faq-answer {
+            padding: 0 var(--spacing-lg);
+            max-height: 0;
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            background: var(--gray-50);
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding: var(--spacing-lg);
+        }
+
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-3xl);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-text h2 {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-text p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: var(--spacing-lg);
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cta-btn {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .cta-btn:hover {
+            background: var(--gray-100);
+        }
+
+        .cta-guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .savings-badge {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background: var(--success);
+            color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-md);
+            font-size: 0.75rem;
+            font-weight: var(--font-weight-bold);
+            animation: pulse 2s infinite;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .benefits-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .billing-toggle {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                align-items: center;
+            }
+        }
+    </style>
 </body>
 </html>

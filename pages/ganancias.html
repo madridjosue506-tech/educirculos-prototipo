@@ -3,20 +3,797 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ganancias - EduCírculos</title>
+    <title>Logros y Ganancias - EduCírculos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div id="navbar"></div>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduCírculos</span>
+            </div>
 
-    <section class="ganancias">
-        <h2>Mis Ganancias</h2>
-        <div id="ganancias-list">
-            <!-- Aquí se mostrarán las ganancias -->
+            <nav class="sidebar-nav">
+                <!-- Navegación Principal -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Principal</h4>
+                    <a href="../dashboard.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="cursos.html" class="nav-item">
+                        <i class="fas fa-book-open"></i>
+                        <span>Cursos</span>
+                    </a>
+                    <a href="circulos.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Círculos de Estudio</span>
+                    </a>
+                    <a href="mis-circulos.html" class="nav-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Mis Círculos</span>
+                    </a>
+                </div>
+
+                <!-- Mi Aprendizaje -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Mi Aprendizaje</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Mi Progreso</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificados</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Guardados</span>
+                    </a>
+                </div>
+
+                <!-- Recompensas -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Recompensas</h4>
+                    <a href="educreditos.html" class="nav-item">
+                        <i class="fas fa-coins"></i>
+                        <span>EduCréditos</span>
+                        <span class="nav-badge educreditos-count">2,450</span>
+                    </a>
+                    <a href="ganancias.html" class="nav-item active">
+                        <i class="fas fa-trophy"></i>
+                        <span>Logros</span>
+                    </a>
+                    <a href="planes.html" class="nav-item">
+                        <i class="fas fa-crown"></i>
+                        <span>Planes Premium</span>
+                    </a>
+                </div>
+
+                <!-- Configuración -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Cuenta</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Ayuda</span>
+                    </a>
+                    <a href="../index.html" class="nav-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Barra Superior -->
+            <header class="top-bar">
+                <div class="page-info">
+                    <h1 class="page-title">Logros y Ganancias</h1>
+                    <p class="page-subtitle">Celebra tus éxitos y desbloquea nuevas recompensas</p>
+                </div>
+
+                <div class="top-bar-actions">
+                    <!-- Compartir Logros -->
+                    <button class="btn btn-outline" id="shareAchievementsBtn">
+                        <i class="fas fa-share-alt"></i>
+                        Compartir Logros
+                    </button>
+
+                    <!-- Usuario -->
+                    <div class="user-menu">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <span class="user-name">Ana García</span>
+                            <span class="user-level">Nivel Avanzado</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Área de Contenido -->
+            <div class="content-area">
+                <!-- Perfil de Logros -->
+                <section class="achievements-profile">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <div class="avatar-ring">
+                                    <div class="user-avatar large">A</div>
+                                    <div class="level-badge">Nv. 7</div>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Ana García</h2>
+                                <p class="profile-title">Estudiante Avanzada</p>
+                                <div class="profile-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-value">28</span>
+                                        <span class="stat-label">Logros</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">3,200</span>
+                                        <span class="stat-label">EduCréditos</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">125</span>
+                                        <span class="stat-label">Días Activa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-progress">
+                            <div class="progress-info">
+                                <span>Progreso al Nivel 8</span>
+                                <span>2,400 / 3,000 XP</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-achievements">
+                        <h3>Logros Recientes</h3>
+                        <div class="recent-list">
+                            <div class="recent-item">
+                                <div class="achievement-icon gold">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <div class="achievement-info">
+                                    <h4>Maestro de las Matemáticas</h4>
+                                    <span>Hace 2 días</span>
+                                </div>
+                            </div>
+                            <div class="recent-item">
+                                <div class="achievement-icon silver">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="achievement-info">
+                                    <h4>30 Días Consecutivos</h4>
+                                    <span>Hace 1 semana</span>
+                                </div>
+                            </div>
+                            <div class="recent-item">
+                                <div class="achievement-icon bronze">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="achievement-info">
+                                    <h4>Colaborador Activo</h4>
+                                    <span>Hace 2 semanas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Categorías de Logros -->
+                <section class="achievements-categories">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-trophy"></i>
+                            Categorías de Logros
+                        </h2>
+                        <div class="category-filters">
+                            <button class="filter-btn active" data-category="all">Todos</button>
+                            <button class="filter-btn" data-category="learning">Aprendizaje</button>
+                            <button class="filter-btn" data-category="social">Social</button>
+                            <button class="filter-btn" data-category="dedication">Dedicación</button>
+                            <button class="filter-btn" data-category="special">Especiales</button>
+                        </div>
+                    </div>
+
+                    <div class="achievements-grid">
+                        <!-- Logros de Aprendizaje -->
+                        <div class="achievement-card earned" data-category="learning">
+                            <div class="achievement-status earned">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="achievement-icon gold">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Maestro de las Matemáticas</h3>
+                                <p>Completa 10 cursos de matemáticas con calificación superior a 90%</p>
+                                <div class="achievement-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>200 EduCréditos</span>
+                                </div>
+                                <div class="achievement-date">
+                                    Desbloqueado: 15 dic 2024
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-card earned" data-category="social">
+                            <div class="achievement-status earned">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="achievement-icon silver">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Colaborador Activo</h3>
+                                <p>Participa en 20 discusiones de círculos de estudio</p>
+                                <div class="achievement-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>100 EduCréditos</span>
+                                </div>
+                                <div class="achievement-date">
+                                    Desbloqueado: 1 dic 2024
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-card earned" data-category="dedication">
+                            <div class="achievement-status earned">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="achievement-icon gold">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Dedicación Inquebrantable</h3>
+                                <p>Inicia sesión durante 30 días consecutivos</p>
+                                <div class="achievement-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>150 EduCréditos</span>
+                                </div>
+                                <div class="achievement-date">
+                                    Desbloqueado: 8 dic 2024
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-card locked" data-category="learning">
+                            <div class="achievement-status locked">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="achievement-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Científico Experto</h3>
+                                <p>Completa 5 cursos de ciencias naturales</p>
+                                <div class="achievement-progress">
+                                    <div class="progress-bar small">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span class="progress-text">3/5 cursos</span>
+                                </div>
+                                <div class="achievement-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>175 EduCréditos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-card locked" data-category="social">
+                            <div class="achievement-status locked">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="achievement-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Líder de Círculo</h3>
+                                <p>Crea y gestiona exitosamente 3 círculos de estudio</p>
+                                <div class="achievement-progress">
+                                    <div class="progress-bar small">
+                                        <div class="progress-fill" style="width: 66%"></div>
+                                    </div>
+                                    <span class="progress-text">2/3 círculos</span>
+                                </div>
+                                <div class="achievement-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>250 EduCréditos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-card earned" data-category="special">
+                            <div class="achievement-status earned">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="achievement-icon diamond">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Primera Impresión</h3>
+                                <p>Completa tu perfil y toma tu primer curso</p>
+                                <div class="achievement-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>50 EduCréditos</span>
+                                </div>
+                                <div class="achievement-date">
+                                    Desbloqueado: 15 nov 2024
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-card locked" data-category="dedication">
+                            <div class="achievement-status locked">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="achievement-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Racha Legendaria</h3>
+                                <p>Mantén una racha de estudio de 100 días</p>
+                                <div class="achievement-progress">
+                                    <div class="progress-bar small">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                    <span class="progress-text">45/100 días</span>
+                                </div>
+                                <div class="achievement-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>500 EduCréditos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-card locked" data-category="learning">
+                            <div class="achievement-status locked">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="achievement-icon">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Explorador Cultural</h3>
+                                <p>Completa cursos de historia y geografía hondureña</p>
+                                <div class="achievement-progress">
+                                    <div class="progress-bar small">
+                                        <div class="progress-fill" style="width: 25%"></div>
+                                    </div>
+                                    <span class="progress-text">1/4 cursos</span>
+                                </div>
+                                <div class="achievement-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>300 EduCréditos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-card earned" data-category="social">
+                            <div class="achievement-status earned">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="achievement-icon bronze">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Mentor Solidario</h3>
+                                <p>Ayuda a 10 estudiantes respondiendo sus preguntas</p>
+                                <div class="achievement-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>75 EduCréditos</span>
+                                </div>
+                                <div class="achievement-date">
+                                    Desbloqueado: 22 nov 2024
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="load-more">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-chevron-down"></i>
+                            Ver Más Logros
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Estadísticas Detalladas -->
+                <section class="detailed-stats">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-chart-line"></i>
+                            Estadísticas Detalladas
+                        </h2>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Actividad de Aprendizaje</h3>
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-row">
+                                    <span>Cursos completados</span>
+                                    <span class="stat-value">25</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Horas de estudio</span>
+                                    <span class="stat-value">187h</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Lecciones finalizadas</span>
+                                    <span class="stat-value">342</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Promedio de calificaciones</span>
+                                    <span class="stat-value highlight">94%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Participación Social</h3>
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-row">
+                                    <span>Círculos unidos</span>
+                                    <span class="stat-value">5</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Círculos creados</span>
+                                    <span class="stat-value">2</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Mensajes enviados</span>
+                                    <span class="stat-value">127</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Respuestas útiles</span>
+                                    <span class="stat-value highlight">23</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Progreso y Dedicación</h3>
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-row">
+                                    <span>Días consecutivos</span>
+                                    <span class="stat-value">45</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Racha más larga</span>
+                                    <span class="stat-value">67 días</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Logros desbloqueados</span>
+                                    <span class="stat-value">28</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Nivel actual</span>
+                                    <span class="stat-value highlight">7</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Recompensas Ganadas</h3>
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-row">
+                                    <span>EduCréditos totales</span>
+                                    <span class="stat-value">3,200</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>EduCréditos gastados</span>
+                                    <span class="stat-value">750</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Balance actual</span>
+                                    <span class="stat-value">2,450</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Esta semana</span>
+                                    <span class="stat-value highlight">+180</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ranking y Competencia -->
+                <section class="ranking-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-medal"></i>
+                            Ranking Semanal
+                        </h2>
+                        <button class="btn btn-outline btn-sm">
+                            <i class="fas fa-eye"></i>
+                            Ver Ranking Global
+                        </button>
+                    </div>
+
+                    <div class="ranking-content">
+                        <div class="leaderboard">
+                            <div class="leaderboard-item podium gold">
+                                <div class="rank-position">1</div>
+                                <div class="rank-avatar">
+                                    <div class="user-avatar">M</div>
+                                    <div class="rank-crown">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                </div>
+                                <div class="rank-info">
+                                    <h4>María López</h4>
+                                    <p>2,850 EduCréditos</p>
+                                </div>
+                            </div>
+
+                            <div class="leaderboard-item podium silver">
+                                <div class="rank-position">2</div>
+                                <div class="rank-avatar">
+                                    <div class="user-avatar">A</div>
+                                </div>
+                                <div class="rank-info">
+                                    <h4>Ana García (Tú)</h4>
+                                    <p>2,450 EduCréditos</p>
+                                </div>
+                            </div>
+
+                            <div class="leaderboard-item podium bronze">
+                                <div class="rank-position">3</div>
+                                <div class="rank-avatar">
+                                    <div class="user-avatar">C</div>
+                                </div>
+                                <div class="rank-info">
+                                    <h4>Carlos Mendoza</h4>
+                                    <p>2,200 EduCréditos</p>
+                                </div>
+                            </div>
+
+                            <div class="leaderboard-item">
+                                <div class="rank-position">4</div>
+                                <div class="rank-avatar">
+                                    <div class="user-avatar">L</div>
+                                </div>
+                                <div class="rank-info">
+                                    <h4>Laura Herrera</h4>
+                                    <p>1,980 EduCréditos</p>
+                                </div>
+                            </div>
+
+                            <div class="leaderboard-item">
+                                <div class="rank-position">5</div>
+                                <div class="rank-avatar">
+                                    <div class="user-avatar">D</div>
+                                </div>
+                                <div class="rank-info">
+                                    <h4>Diego Ramírez</h4>
+                                    <p>1,750 EduCréditos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ranking-progress">
+                            <h3>Tu Progreso Esta Semana</h3>
+                            <div class="weekly-goal">
+                                <div class="goal-info">
+                                    <span>Meta Semanal: 200 EduCréditos</span>
+                                    <span>180 / 200</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                                <p class="goal-message">¡Solo 20 EduCréditos más para alcanzar tu meta!</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- AI Assistant Button (Fixed) -->
+    <div class="ai-assistant-fab" id="aiAssistantFab">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- AI Assistant Chat -->
+    <div class="ai-chat" id="aiChat">
+        <div class="ai-chat-header">
+            <div class="ai-chat-title">
+                <i class="fas fa-robot"></i>
+                <span>Asistente EduCírculos</span>
+            </div>
+            <button class="ai-chat-close" id="aiChatClose">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-    </section>
+        <div class="ai-chat-messages" id="aiChatMessages">
+        </div>
+        <div class="ai-chat-input">
+            <input type="text" id="aiChatInput" placeholder="¿Cómo puedo desbloquear más logros?">
+            <button id="aiChatSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
 
-    <div id="footer"></div>
     <script src="../assets/js/app.js"></script>
+
+    <script>
+        // JavaScript específico para Logros y Ganancias
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filtros de categoría
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    const category = e.target.dataset.category;
+                    const cards = document.querySelectorAll('.achievement-card');
+                    
+                    cards.forEach(card => {
+                        if (category === 'all' || card.dataset.category === category) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Animación de barras de progreso
+            function animateProgressBars() {
+                const progressBars = document.querySelectorAll('.progress-fill');
+                progressBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.transition = 'width 1s ease-out';
+                        bar.style.width = width;
+                    }, 200);
+                });
+            }
+
+            // Efecto de hover en logros
+            document.querySelectorAll('.achievement-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    if (card.classList.contains('earned')) {
+                        card.style.transform = 'translateY(-8px) scale(1.02)';
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Botón de compartir logros
+            const shareBtn = document.getElementById('shareAchievementsBtn');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', () => {
+                    if (navigator.share) {
+                        navigator.share({
+                            title: 'Mis Logros en EduCírculos',
+                            text: '¡He desbloqueado 28 logros en EduCírculos! 🏆',
+                            url: window.location.href
+                        });
+                    } else {
+                        if (typeof Utils !== 'undefined') {
+                            Utils.showNotification('¡Enlace copiado al portapapeles!', 'success');
+                        }
+                    }
+                });
+            }
+
+            // Animación de contadores
+            function animateCounters() {
+                const counters = document.querySelectorAll('.stat-value:not(.highlight)');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+                    if (target && target > 0) {
+                        let current = 0;
+                        const increment = target / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                counter.textContent = target.toLocaleString();
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current).toLocaleString();
+                            }
+                        }, 30);
+                    }
+                });
+            }
+
+            // Intersección Observer para animaciones al hacer scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('progress-bar')) {
+                            animateProgressBars();
+                        }
+                        if (entry.target.classList.contains('stats-grid')) {
+                            animateCounters();
+                        }
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observar elementos para animación
+            document.querySelectorAll('.achievement-card, .progress-bar, .stats-grid').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Inicializar animaciones
+            setTimeout(animateProgressBars, 500);
+            setTimeout(animateCounters, 1000);
+
+            // Easter egg - click en el avatar del perfil
+            const profileAvatar = document.querySelector('.profile-avatar .user-avatar');
+            if (profileAvatar) {
+                let clickCount = 0;
+                profileAvatar.addEventListener('click', () => {
+                    clickCount++;
+                    if (clickCount >= 5) {
+                        if (typeof Utils !== 'undefined') {
+                            Utils.showNotification('🎉 ¡Logro secreto desbloqueado! "Curioso por Naturaleza" +25 EduCréditos', 'success');
+                        }
+                        clickCount = 0;
+                    }
+                });
+            }
+
+            // Botón cargar más logros
+            const loadMoreBtn = document.querySelector('.load-more .btn');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    if (typeof Utils !== 'undefined') {
+                        Utils.showNotification('Cargando más logros...', 'info');
+                    }
+                    // Simular carga de más logros
+                    setTimeout(() => {
+                        if (typeof Utils !== 'undefined') {
+                            Utils.showNotification('¡Se han cargado 6 logros adicionales!', 'success');
+                        }
+                    }, 1500);
+                });
+            }
+        });
+    </script>
 </body>
 </html>

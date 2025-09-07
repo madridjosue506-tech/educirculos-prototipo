@@ -4,19 +4,692 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduCréditos - EduCírculos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div id="navbar"></div>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduCírculos</span>
+            </div>
 
-    <section class="educreditos">
-        <h2>Mis EduCréditos</h2>
-        <div id="educreditos-list" class="cards-container">
-            <!-- Aquí se mostrarán EduCréditos ganados -->
+            <nav class="sidebar-nav">
+                <!-- Navegación Principal -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Principal</h4>
+                    <a href="../dashboard.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="cursos.html" class="nav-item">
+                        <i class="fas fa-book-open"></i>
+                        <span>Cursos</span>
+                    </a>
+                    <a href="circulos.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Círculos de Estudio</span>
+                    </a>
+                    <a href="mis-circulos.html" class="nav-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Mis Círculos</span>
+                    </a>
+                </div>
+
+                <!-- Mi Aprendizaje -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Mi Aprendizaje</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Mi Progreso</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificados</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Guardados</span>
+                    </a>
+                </div>
+
+                <!-- Recompensas -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Recompensas</h4>
+                    <a href="educreditos.html" class="nav-item active">
+                        <i class="fas fa-coins"></i>
+                        <span>EduCréditos</span>
+                        <span class="nav-badge educreditos-count">2,450</span>
+                    </a>
+                    <a href="ganancias.html" class="nav-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Logros</span>
+                    </a>
+                    <a href="planes.html" class="nav-item">
+                        <i class="fas fa-crown"></i>
+                        <span>Planes Premium</span>
+                    </a>
+                </div>
+
+                <!-- Configuración -->
+                <div class="nav-section">
+                    <h4 class="nav-section-title">Cuenta</h4>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Ayuda</span>
+                    </a>
+                    <a href="../index.html" class="nav-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Barra Superior -->
+            <header class="top-bar">
+                <div class="page-info">
+                    <h1 class="page-title">EduCréditos</h1>
+                    <p class="page-subtitle">Tu moneda virtual para desbloquear contenido premium</p>
+                </div>
+
+                <div class="top-bar-actions">
+                    <!-- Ganar Créditos -->
+                    <button class="btn btn-success" id="earnCreditsBtn">
+                        <i class="fas fa-plus"></i>
+                        Ganar Créditos
+                    </button>
+
+                    <!-- Usuario -->
+                    <div class="user-menu">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <span class="user-name">Ana García</span>
+                            <span class="user-level">Nivel Avanzado</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Área de Contenido -->
+            <div class="content-area">
+                <!-- Balance Principal -->
+                <section class="credits-balance">
+                    <div class="balance-card">
+                        <div class="balance-header">
+                            <div class="balance-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="balance-info">
+                                <h2>Balance Actual</h2>
+                                <p>Tus EduCréditos disponibles</p>
+                            </div>
+                        </div>
+                        <div class="balance-amount">
+                            <span class="amount" id="currentBalance">2,450</span>
+                            <span class="currency">EduCréditos</span>
+                        </div>
+                        <div class="balance-actions">
+                            <button class="btn btn-primary" id="useCreditsBtn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Usar Créditos
+                            </button>
+                            <button class="btn btn-outline" id="historyBtn">
+                                <i class="fas fa-history"></i>
+                                Ver Historial
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="balance-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>3,200</h3>
+                                <p>Total Ganado</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>750</h3>
+                                <p>Total Gastado</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-week"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>180</h3>
+                                <p>Esta Semana</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Formas de Ganar Créditos -->
+                <section class="earn-credits">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-star"></i>
+                            Formas de Ganar EduCréditos
+                        </h2>
+                    </div>
+
+                    <div class="earn-grid">
+                        <div class="earn-card">
+                            <div class="earn-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="earn-content">
+                                <h3>Completar Cursos</h3>
+                                <p>Gana créditos al completar lecciones y módulos de cursos</p>
+                                <div class="earn-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>10-50 créditos por lección</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary earn-btn" data-action="courses">
+                                Ver Cursos
+                            </button>
+                        </div>
+
+                        <div class="earn-card">
+                            <div class="earn-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="earn-content">
+                                <h3>Participar en Círculos</h3>
+                                <p>Participa activamente en discusiones y sesiones de estudio</p>
+                                <div class="earn-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>5-20 créditos por sesión</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary earn-btn" data-action="circles">
+                                Unirse a Círculos
+                            </button>
+                        </div>
+
+                        <div class="earn-card">
+                            <div class="earn-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="earn-content">
+                                <h3>Responder Preguntas</h3>
+                                <p>Ayuda a otros estudiantes respondiendo preguntas en los foros</p>
+                                <div class="earn-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>2-10 créditos por respuesta</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary earn-btn" data-action="help">
+                                Ir a Foros
+                            </button>
+                        </div>
+
+                        <div class="earn-card">
+                            <div class="earn-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="earn-content">
+                                <h3>Asistencia Diaria</h3>
+                                <p>Inicia sesión todos los días para recibir bonos de asistencia</p>
+                                <div class="earn-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>10 créditos diarios</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-success earn-btn" id="dailyRewardBtn" data-action="daily">
+                                Reclamar Hoy
+                            </button>
+                        </div>
+
+                        <div class="earn-card">
+                            <div class="earn-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="earn-content">
+                                <h3>Referir Amigos</h3>
+                                <p>Invita a tus amigos a unirse a EduCírculos</p>
+                                <div class="earn-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>100 créditos por referido</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary earn-btn" data-action="refer">
+                                Invitar Amigos
+                            </button>
+                        </div>
+
+                        <div class="earn-card">
+                            <div class="earn-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="earn-content">
+                                <h3>Lograr Objetivos</h3>
+                                <p>Completa desafíos y alcanza hitos de aprendizaje</p>
+                                <div class="earn-reward">
+                                    <i class="fas fa-coins"></i>
+                                    <span>25-200 créditos por logro</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary earn-btn" data-action="achievements">
+                                Ver Logros
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tienda de Recompensas -->
+                <section class="rewards-store">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-store"></i>
+                            Tienda de Recompensas
+                        </h2>
+                        <div class="store-filters">
+                            <button class="filter-btn active" data-category="all">Todos</button>
+                            <button class="filter-btn" data-category="courses">Cursos</button>
+                            <button class="filter-btn" data-category="certificates">Certificados</button>
+                            <button class="filter-btn" data-category="premium">Premium</button>
+                        </div>
+                    </div>
+
+                    <div class="rewards-grid">
+                        <div class="reward-card" data-category="courses">
+                            <div class="reward-image">
+                                <i class="fas fa-unlock"></i>
+                            </div>
+                            <div class="reward-content">
+                                <h3>Curso Premium: Cálculo Avanzado</h3>
+                                <p>Acceso completo al curso de cálculo diferencial e integral</p>
+                                <div class="reward-price">
+                                    <i class="fas fa-coins"></i>
+                                    <span>300 EduCréditos</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary reward-btn" data-price="300">
+                                Desbloquear
+                            </button>
+                        </div>
+
+                        <div class="reward-card" data-category="certificates">
+                            <div class="reward-image">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="reward-content">
+                                <h3>Certificado Digital</h3>
+                                <p>Certificado oficial descargable para cualquier curso completado</p>
+                                <div class="reward-price">
+                                    <i class="fas fa-coins"></i>
+                                    <span>150 EduCréditos</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary reward-btn" data-price="150">
+                                Obtener
+                            </button>
+                        </div>
+
+                        <div class="reward-card" data-category="premium">
+                            <div class="reward-image">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="reward-content">
+                                <h3>Membresía Premium (1 mes)</h3>
+                                <p>Acceso ilimitado a todos los cursos y funciones premium</p>
+                                <div class="reward-price">
+                                    <i class="fas fa-coins"></i>
+                                    <span>500 EduCréditos</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary reward-btn" data-price="500">
+                                Activar
+                            </button>
+                        </div>
+
+                        <div class="reward-card" data-category="courses">
+                            <div class="reward-image">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="reward-content">
+                                <h3>Material de Estudio Extra</h3>
+                                <p>PDFs, ejercicios adicionales y recursos complementarios</p>
+                                <div class="reward-price">
+                                    <i class="fas fa-coins"></i>
+                                    <span>75 EduCréditos</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary reward-btn" data-price="75">
+                                Descargar
+                            </button>
+                        </div>
+
+                        <div class="reward-card" data-category="premium">
+                            <div class="reward-image">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="reward-content">
+                                <h3>Tutoría Personalizada (1 hora)</h3>
+                                <p>Sesión individual con un tutor experto en la materia</p>
+                                <div class="reward-price">
+                                    <i class="fas fa-coins"></i>
+                                    <span>400 EduCréditos</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary reward-btn" data-price="400">
+                                Reservar
+                            </button>
+                        </div>
+
+                        <div class="reward-card" data-category="certificates">
+                            <div class="reward-image">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="reward-content">
+                                <h3>Insignia de Especialización</h3>
+                                <p>Insignia digital que demuestra dominio en una materia específica</p>
+                                <div class="reward-price">
+                                    <i class="fas fa-coins"></i>
+                                    <span>200 EduCréditos</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary reward-btn" data-price="200">
+                                Adquirir
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Historial de Transacciones -->
+                <section class="transaction-history">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-history"></i>
+                            Historial Reciente
+                        </h2>
+                        <button class="btn btn-outline btn-sm" id="exportHistoryBtn">
+                            <i class="fas fa-download"></i>
+                            Exportar
+                        </button>
+                    </div>
+
+                    <div class="transactions-list">
+                        <div class="transaction-item earned">
+                            <div class="transaction-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <h4>Lección Completada</h4>
+                                <p>Álgebra Básica - Módulo 3</p>
+                                <span class="transaction-time">Hace 2 horas</span>
+                            </div>
+                            <div class="transaction-amount earned">
+                                +25 EduCréditos
+                            </div>
+                        </div>
+
+                        <div class="transaction-item spent">
+                            <div class="transaction-icon">
+                                <i class="fas fa-minus"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <h4>Certificado Adquirido</h4>
+                                <p>Matemáticas Básicas - Certificado Digital</p>
+                                <span class="transaction-time">Ayer</span>
+                            </div>
+                            <div class="transaction-amount spent">
+                                -150 EduCréditos
+                            </div>
+                        </div>
+
+                        <div class="transaction-item earned">
+                            <div class="transaction-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <h4>Asistencia Diaria</h4>
+                                <p>Bonus por 7 días consecutivos</p>
+                                <span class="transaction-time">Ayer</span>
+                            </div>
+                            <div class="transaction-amount earned">
+                                +10 EduCréditos
+                            </div>
+                        </div>
+
+                        <div class="transaction-item earned">
+                            <div class="transaction-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <h4>Participación en Círculo</h4>
+                                <p>Química Experimental - Sesión de estudio</p>
+                                <span class="transaction-time">Hace 2 días</span>
+                            </div>
+                            <div class="transaction-amount earned">
+                                +15 EduCréditos
+                            </div>
+                        </div>
+
+                        <div class="transaction-item earned">
+                            <div class="transaction-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <h4>Logro Desbloqueado</h4>
+                                <p>Estudiante Dedicado - 10 días seguidos</p>
+                                <span class="transaction-time">Hace 3 días</span>
+                            </div>
+                            <div class="transaction-amount earned">
+                                +50 EduCréditos
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="load-more">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-chevron-down"></i>
+                            Ver Más Transacciones
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- AI Assistant Button (Fixed) -->
+    <div class="ai-assistant-fab" id="aiAssistantFab">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- AI Assistant Chat -->
+    <div class="ai-chat" id="aiChat">
+        <div class="ai-chat-header">
+            <div class="ai-chat-title">
+                <i class="fas fa-robot"></i>
+                <span>Asistente EduCírculos</span>
+            </div>
+            <button class="ai-chat-close" id="aiChatClose">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-    </section>
+        <div class="ai-chat-messages" id="aiChatMessages">
+        </div>
+        <div class="ai-chat-input">
+            <input type="text" id="aiChatInput" placeholder="¿Cómo puedo ganar más EduCréditos?">
+            <button id="aiChatSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
 
-    <div id="footer"></div>
     <script src="../assets/js/app.js"></script>
+
+    <script>
+        // JavaScript específico para EduCréditos
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentBalance = 2450;
+
+            // Actualizar balance en la interfaz
+            function updateBalance() {
+                const balanceElement = document.getElementById('currentBalance');
+                const navBadge = document.querySelector('.educreditos-count');
+                
+                if (balanceElement) {
+                    balanceElement.textContent = currentBalance.toLocaleString();
+                }
+                if (navBadge) {
+                    navBadge.textContent = currentBalance.toLocaleString();
+                }
+            }
+
+            // Botón de recompensa diaria
+            const dailyRewardBtn = document.getElementById('dailyRewardBtn');
+            if (dailyRewardBtn) {
+                dailyRewardBtn.addEventListener('click', () => {
+                    currentBalance += 10;
+                    updateBalance();
+                    dailyRewardBtn.disabled = true;
+                    dailyRewardBtn.innerHTML = '<i class="fas fa-check"></i> Reclamado';
+                    dailyRewardBtn.classList.remove('btn-success');
+                    dailyRewardBtn.classList.add('btn-outline');
+                    
+                    if (typeof Utils !== 'undefined') {
+                        Utils.showNotification('¡Has ganado 10 EduCréditos por tu asistencia diaria!', 'success');
+                    }
+                });
+            }
+
+            // Botones de ganar créditos
+            document.querySelectorAll('.earn-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const action = e.target.dataset.action;
+                    let message = '';
+                    
+                    switch(action) {
+                        case 'courses':
+                            message = 'Redirigiendo a cursos disponibles...';
+                            setTimeout(() => window.location.href = 'cursos.html', 1500);
+                            break;
+                        case 'circles':
+                            message = 'Redirigiendo a círculos de estudio...';
+                            setTimeout(() => window.location.href = 'circulos.html', 1500);
+                            break;
+                        case 'help':
+                            message = 'Abriendo foros de ayuda...';
+                            break;
+                        case 'refer':
+                            message = 'Abriendo panel de invitaciones...';
+                            break;
+                        case 'achievements':
+                            message = 'Redirigiendo a logros...';
+                            setTimeout(() => window.location.href = 'ganancias.html', 1500);
+                            break;
+                    }
+                    
+                    if (typeof Utils !== 'undefined') {
+                        Utils.showNotification(message, 'info');
+                    }
+                });
+            });
+
+            // Filtros de la tienda
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    const category = e.target.dataset.category;
+                    const cards = document.querySelectorAll('.reward-card');
+                    
+                    cards.forEach(card => {
+                        if (category === 'all' || card.dataset.category === category) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Botones de recompensas
+            document.querySelectorAll('.reward-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const price = parseInt(e.target.dataset.price);
+                    const itemName = e.target.closest('.reward-card').querySelector('h3').textContent;
+                    
+                    if (currentBalance >= price) {
+                        if (confirm(`¿Deseas adquirir "${itemName}" por ${price} EduCréditos?`)) {
+                            currentBalance -= price;
+                            updateBalance();
+                            
+                            e.target.innerHTML = '<i class="fas fa-check"></i> Adquirido';
+                            e.target.disabled = true;
+                            e.target.classList.remove('btn-primary');
+                            e.target.classList.add('btn-success');
+                            
+                            if (typeof Utils !== 'undefined') {
+                                Utils.showNotification(`¡Has adquirido "${itemName}" exitosamente!`, 'success');
+                            }
+                        }
+                    } else {
+                        const needed = price - currentBalance;
+                        if (typeof Utils !== 'undefined') {
+                            Utils.showNotification(`Necesitas ${needed} EduCréditos más para esta recompensa`, 'warning');
+                        }
+                    }
+                });
+            });
+
+            // Animación de contador
+            function animateCounter(element, targetValue) {
+                let currentValue = 0;
+                const increment = targetValue / 60;
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= targetValue) {
+                        currentValue = targetValue;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(currentValue).toLocaleString();
+                }, 16);
+            }
+
+            // Inicializar animaciones
+            const balanceElement = document.getElementById('currentBalance');
+            if (balanceElement) {
+                balanceElement.textContent = '0';
+                animateCounter(balanceElement, currentBalance);
+            }
+
+            // Verificar si la recompensa diaria ya fue reclamada
+            const today = new Date().toDateString();
+            const lastClaimed = localStorage.getItem('lastDailyReward');
+            
+            if (lastClaimed === today && dailyRewardBtn) {
+                dailyRewardBtn.disabled = true;
+                dailyRewardBtn.innerHTML = '<i class="fas fa-check"></i> Reclamado';
+                dailyRewardBtn.classList.remove('btn-success');
+                dailyRewardBtn.classList.add('btn-outline');
+            }
+        });
+    </script>
 </body>
 </html>
