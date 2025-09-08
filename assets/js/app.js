@@ -125,29 +125,52 @@ const AIAssistant = {
   responses: {
     greeting: [
       "¡Hola! Soy tu asistente de EduCírculos. ¿En qué puedo ayudarte hoy?",
-      "¡Bienvenido a EduCírculos! Estoy aquí para ayudarte con cualquier pregunta.",
-      "¡Hola! ¿Necesitas ayuda navegando la plataforma o tienes preguntas sobre los cursos?"
+      "¡Bienvenido a EduCírculos! Estoy aquí para apoyarte en tu aprendizaje.",
+      "¡Hola! ¿Quieres que te muestre cursos, círculos de estudio o tu progreso?",
+      "¡Qué gusto verte! ¿Listo para seguir aprendiendo?"
     ],
     courses: [
-      "Tenemos más de 500 cursos adaptados al currículo hondureño. ¿Te interesa alguna materia específica?",
-      "Nuestros cursos están organizados por nivel educativo y materia. ¿Buscas algo en particular?",
-      "Puedes explorar cursos de Matemáticas, Ciencias, Español, Historia y muchos más. ¿Cuál te interesa?"
+      "Tenemos cursos adaptados al currículo hondureño en todas las materias clave.",
+      "¿Prefieres explorar cursos de Matemáticas, Ciencias, Español o Historia?",
+      "También tenemos cursos de competencias digitales y habilidades blandas.",
+      "Si me dices tu nivel (básico, intermedio, avanzado), te recomiendo cursos específicos."
     ],
     credits: [
-      "Los EduCréditos se ganan completando cursos y participando activamente. ¡Cada logro cuenta!",
-      "Puedes usar tus EduCréditos para desbloquear contenido premium o intercambiarlos por certificaciones.",
-      "Los EduCréditos reflejan tu progreso y dedicación en la plataforma. ¡Sigue aprendiendo para ganar más!"
+      "Los EduCréditos se ganan completando cursos, retos y actividades grupales.",
+      "Con más EduCréditos, puedes desbloquear insignias y recompensas.",
+      "¡Cada curso completado suma! Así avanzas en tu nivel educativo dentro de EduCírculos.",
+      "¿Quieres ver formas rápidas de ganar más EduCréditos?"
     ],
     circles: [
-      "Los Círculos de Estudio te permiten conectar con otros estudiantes que comparten tus intereses.",
-      "Puedes crear tu propio círculo o unirte a uno existente. ¡El aprendizaje colaborativo es muy efectivo!",
-      "En los círculos puedes hacer preguntas, compartir recursos y estudiar en grupo. ¿Te gustaría crear uno?"
+      "Los Círculos de Estudio son espacios para aprender colaborativamente.",
+      "Puedes invitar a tus amigos o unirte a un círculo existente en tu materia favorita.",
+      "Cada círculo tiene un chat grupal, materiales compartidos y retos colaborativos.",
+      "¿Quieres que te muestre cómo crear un círculo paso a paso?"
     ],
     help: [
-      "Puedo ayudarte con información sobre cursos, EduCréditos, círculos de estudio, y navegación de la plataforma.",
-      "Si tienes problemas técnicos, preguntas sobre contenido o necesitas orientación, estoy aquí para ayudarte.",
-      "¿Necesitas ayuda con algo específico? Puedo orientarte sobre cursos, funciones de la plataforma o resolver dudas."
+      "Puedo guiarte en cursos, EduCréditos, círculos de estudio o resolver dudas de la plataforma.",
+      "Si es tu primera vez, te recomiendo empezar con el tour del dashboard.",
+      "¿Tienes un problema técnico? Puedo darte pasos para solucionarlo.",
+      "Cuéntame: ¿quieres ayuda con tu cuenta, cursos o círculos?"
+    ],
+    motivation: [
+      "¡Vas muy bien! Recuerda: cada minuto que estudias te acerca más a tus metas.",
+      "No te rindas, tu esfuerzo construye tu futuro.",
+      "¡EduCírculos es un viaje, no una carrera! Aprende a tu ritmo.",
+      "Ya completaste varios logros, ¿quieres ver tu progreso?"
+    ],
+    progress: [
+      "Puedes revisar tu progreso en el dashboard en la sección de estadísticas.",
+      "Tienes un historial de cursos completados y certificaciones en tu perfil.",
+      "¿Quieres que te muestre tus logros recientes?",
+      "Con cada curso que terminas, tu nivel académico en EduCírculos sube."
     ]
+  },
+
+  normalizeText(text) {
+    return text.toLowerCase()
+               .normalize("NFD")
+               .replace(/[\u0300-\u036f]/g, "");
   },
 
   init() {
@@ -202,7 +225,6 @@ const AIAssistant = {
       this.addMessage(message, 'user');
       input.value = '';
       
-      // Simular respuesta del AI después de un delay
       setTimeout(() => {
         const response = this.generateResponse(message);
         this.addMessage(response, 'ai');
@@ -227,9 +249,9 @@ const AIAssistant = {
   },
 
   generateResponse(message) {
-    const lowerMessage = message.toLowerCase();
-    
-    if (lowerMessage.includes('hola') || lowerMessage.includes('ayuda')) {
+    const lowerMessage = this.normalizeText(message);
+
+    if (lowerMessage.includes('hola') || lowerMessage.includes('buenas')) {
       return this.getRandomResponse('greeting');
     } else if (lowerMessage.includes('curso') || lowerMessage.includes('materia')) {
       return this.getRandomResponse('courses');
@@ -237,6 +259,12 @@ const AIAssistant = {
       return this.getRandomResponse('credits');
     } else if (lowerMessage.includes('circulo') || lowerMessage.includes('grupo')) {
       return this.getRandomResponse('circles');
+    } else if (lowerMessage.includes('animo') || lowerMessage.includes('motivacion')) {
+      return this.getRandomResponse('motivation');
+    } else if (lowerMessage.includes('progreso') || lowerMessage.includes('estadistica')) {
+      return this.getRandomResponse('progress');
+    } else if (lowerMessage.includes('ayuda') || lowerMessage.includes('problema')) {
+      return this.getRandomResponse('help');
     } else {
       return this.getRandomResponse('help');
     }
@@ -247,6 +275,8 @@ const AIAssistant = {
     return responses[Math.floor(Math.random() * responses.length)];
   }
 };
+
+// (El resto del código de Auth, Dashboard, Courses y estilos se mantiene igual que en tu versión, solo se actualizaron Utils y AIAssistant).
 
 // ===== AUTENTICACIÓN =====
 const Auth = {
